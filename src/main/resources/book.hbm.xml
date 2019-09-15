@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hibernate-mapping>
+    <class name="bookstore.Book" table="books">
+        <id name="bookCode"  column="bcode">
+        </id>
+        <property name="bookTitle">
+            <column name="btitle"/>
+        </property>
+        <property name="author">
+            <column name="author"/>
+        </property>
+        <property name="subject">
+            <column name="subject"/>
+        </property>
+        <property name="price">
+            <column name="price"/>
+        </property>
+    </class>
+</hibernate-mapping>
