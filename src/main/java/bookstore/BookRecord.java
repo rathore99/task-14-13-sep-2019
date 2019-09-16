@@ -2,11 +2,9 @@ package bookstore;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name="books")
-public class Book {
+public class BookRecord {
 	@Id
 	private int bookCode;
 	private String bookTitle;
@@ -14,7 +12,7 @@ public class Book {
 	private String subject;
 	private int price;
 	
-	public Book() {
+	public BookRecord() {
 		super();
 	}
 	
@@ -23,7 +21,7 @@ public class Book {
 		// TODO Auto-generated method stub
 		return super.toString();
 	}
-	public Book(int bookCode, String bookTitle, String author, String subject, int price) {
+	public BookRecord(int bookCode, String bookTitle, String author, String subject, int price) {
 		super();
 		this.bookCode = bookCode;
 		this.bookTitle = bookTitle;

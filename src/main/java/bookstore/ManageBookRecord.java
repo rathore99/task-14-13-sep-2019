@@ -11,7 +11,7 @@ public class ManageBookRecord {
 
 	public static void main(String[] args) {
 
-		Configuration config = new Configuration().configure();
+		Configuration config = new Configuration().configure().addAnnotatedClass(bookstore.BookRecord.class);
 		SessionFactory factory = config.buildSessionFactory();
 		Session session = factory.openSession();
 		Scanner sc = new Scanner(System.in);
@@ -22,12 +22,13 @@ public class ManageBookRecord {
 			System.out.println("2.   Update Book Details ");
 			System.out.println("3.   Delete Book Record ");
 			System.out.println("4.    Exit. ");
-			Book book = new Book();
+			
 			Transaction trx = session.beginTransaction();
 
 			choice = sc.nextInt();
 			switch (choice) {
 			case 1: {
+				BookRecord book = new BookRecord();
 				System.out.println("Enter Book Details : ");
 				System.out.println("Enter Book Code : ");
 				int bcode = sc.nextInt();
@@ -50,6 +51,7 @@ public class ManageBookRecord {
 				break;
 			}
 			case 2: {
+				BookRecord book = new BookRecord();
 				System.out.println("Enter Book Details : ");
 				System.out.println("Enter Book Code : ");
 				book.setBookCode(sc.nextInt());
@@ -67,10 +69,10 @@ public class ManageBookRecord {
 				break;
 			}
 			case 3: {
-			
+				BookRecord b1 = new BookRecord();
 				System.out.println("Enter the Book code You Want to DELETE: ");
-				book.setBookCode(sc.nextInt());
-				session.delete(book);
+				b1.setBookCode(sc.nextInt());
+				session.delete(b1);
 				trx.commit();
 				System.out.println("RECORD DELETED");
 				break;
